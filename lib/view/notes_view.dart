@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:notes/weidgets/addnotebottomsheet.dart';
-import 'package:notes/weidgets/cusstomappbar.dart';
-import 'package:notes/weidgets/notesitem.dart';
-import 'package:notes/weidgets/noteslistview.dart';
+import 'package:notes/weidgets/mainAndAddview/addnotebottomsheet.dart';
+import 'package:notes/weidgets/mainAndAddview/cusstomappbar.dart';
+import 'package:notes/weidgets/mainAndAddview/notesitem.dart';
+import 'package:notes/weidgets/mainAndAddview/noteslistview.dart';
 
-import '../weidgets/notesviewbody.dart';
+import '../weidgets/mainAndAddview/notesviewbody.dart';
 
 class notesview extends StatelessWidget {
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes/weidgets/notesitem.dart';
+import 'package:notes/weidgets/mainAndAddview/notesitem.dart';
 
 class noteslistview extends StatelessWidget {
   @override
