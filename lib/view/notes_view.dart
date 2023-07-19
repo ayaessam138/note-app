@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes/weidgets/cusstomappbar.dart';
+import 'package:notes/weidgets/notesitem.dart';
+import 'package:notes/weidgets/noteslistview.dart';
 
 class notesview extends StatelessWidget {
   @override
@@ -25,6 +27,7 @@ class notesviewbody extends StatelessWidget {
             height: 50,
           ),
           Custoumappbar(),
+          Expanded(child: noteslistview())
         ],
       ),
     );
