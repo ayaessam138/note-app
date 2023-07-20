@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:notes/cubits/cubit/addnotes_cubit.dart';
+import 'package:notes/cubits/cubit/addnotes_cubit/addnotes_cubit.dart';
 import 'package:notes/weidgets/mainAndAddview/addnoteform.dart';
 import 'package:notes/weidgets/mainAndAddview/cusstomtextfield.dart';
 import 'package:notes/weidgets/mainAndAddview/custtombutton.dart';

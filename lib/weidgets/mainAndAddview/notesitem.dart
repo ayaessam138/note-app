@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:notes/models/addnote.dart';
 import 'package:notes/view/edinote_view.dart';
 
 class notesitem extends StatelessWidget {
+  notesitem({this.noteslist});
+  final addnote? noteslist;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,20 +16,20 @@ class notesitem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 218, 172, 103),
+            color: Color(noteslist!.color),
             borderRadius: BorderRadius.circular(16)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
               title: Text(
-                'Flutter Tips',
+                noteslist!.title,
                 style: TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16, bottom: 16),
                 child: Text(
-                  'Build you career with tharwat samy',
+                  noteslist!.subtitle,
                   style: TextStyle(
                       color: Colors.black.withOpacity(.5), fontSize: 18),
                 ),
@@ -41,7 +44,7 @@ class notesitem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24),
-              child: Text('May,12/2021',
+              child: Text(noteslist!.date,
                   style: TextStyle(color: Colors.black.withOpacity(.5))),
             )
           ],
