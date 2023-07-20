@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:notes/constants.dart';
 
 import '../../models/addnote.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'addnotes_state.dart';
 
 class AddnotesCubit extends Cubit<AddnotesState> {

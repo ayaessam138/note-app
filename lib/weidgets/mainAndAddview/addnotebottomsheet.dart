@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:notes/cubits/cubit/addnotes_cubit.dart';
 import 'package:notes/weidgets/mainAndAddview/addnoteform.dart';
 import 'package:notes/weidgets/mainAndAddview/cusstomtextfield.dart';
 import 'package:notes/weidgets/mainAndAddview/custtombutton.dart';
@@ -6,10 +9,27 @@ import 'package:notes/weidgets/mainAndAddview/custtombutton.dart';
 class addnotebottomsheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SingleChildScrollView(
-        child: addnoteform(),
+    return BlocProvider(
+      create: (context) => AddnotesCubit(),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: BlocConsumer<AddnotesCubit, AddnotesState>(
+          listener: (context, state) {
+            if (state is Addnotessucess) {
+              Navigator.pop(context);
+            }
+            if (state is Addnotesfailure) {
+              print('Failed ${state.errormessage}');
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+                inAsyncCall: state is Addnotesloading ? true : false,
+                child: ModalProgressHUD(
+                    inAsyncCall: state is Addnotesloading ? true : false,
+                    child: addnoteform()));
+          },
+        ),
       ),
     );
   }
