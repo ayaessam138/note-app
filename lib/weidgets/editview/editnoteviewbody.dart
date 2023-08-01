@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/cubit/readnotes_cubit/readnotes_cubit.dart';
 import 'package:notes/models/addnote.dart';
+import 'package:notes/weidgets/mainAndAddview/colorslistview.dart';
 import 'package:notes/weidgets/mainAndAddview/cusstomappbar.dart';
 import 'package:notes/weidgets/mainAndAddview/cusstomtextfield.dart';
+
+import '../../constants.dart';
 
 class editnoteviewbody extends StatefulWidget {
   editnoteviewbody({required this.notes});
@@ -43,7 +46,7 @@ class _editnoteviewbodyState extends State<editnoteviewbody> {
               onchanged: (value) {
                 title = value;
               },
-              hint: widget.notes.title ),
+              hint: widget.notes.title),
           const SizedBox(
             height: 16,
           ),
@@ -53,9 +56,57 @@ class _editnoteviewbodyState extends State<editnoteviewbody> {
             },
             hint: widget.notes.subtitle,
             maxlines: 5,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          editviewcolorlistview(
+            notes: widget.notes,
           )
         ],
       ),
+    );
+  }
+}
+
+class editviewcolorlistview extends StatefulWidget {
+  editviewcolorlistview({required this.notes});
+  final addnote notes;
+  @override
+  State<editviewcolorlistview> createState() => _editviewcolorlistviewState();
+}
+
+class _editviewcolorlistviewState extends State<editviewcolorlistview> {
+  int currentindex = 0;
+  @override
+  // void initState() {
+  //   currentindex = colorlist.indexOf(Color(widget.notes.color));
+  //   super.initState();
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 76,
+      child: ListView.builder(
+          itemCount: colorlist.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+              child: GestureDetector(
+                  onTap: () {
+                    currentindex = index;
+
+                    widget.notes.color = colorlist[index].value;
+                    setState(() {});
+                  },
+                  child: coloritem(
+                    ischossen: currentindex == index,
+                    color: colorlist[index],
+                  )),
+            );
+          }),
     );
   }
 }

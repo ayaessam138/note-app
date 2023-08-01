@@ -5,8 +5,8 @@ import 'package:notes/models/addnote.dart';
 import 'package:notes/view/edinote_view.dart';
 
 class notesitem extends StatelessWidget {
-  notesitem({this.noteslist});
-  final addnote? noteslist;
+  notesitem({required this.noteslist});
+  final addnote noteslist;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

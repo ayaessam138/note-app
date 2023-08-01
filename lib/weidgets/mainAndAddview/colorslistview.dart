@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/cubit/addnotes_cubit/addnotes_cubit.dart';
 
+import '../../constants.dart';
+
 class coloritem extends StatelessWidget {
   final bool ischossen;
   final Color color;
@@ -30,12 +32,6 @@ class colorlistview extends StatefulWidget {
 }
 
 class _colorlistviewState extends State<colorlistview> {
-  List<Color> colorlist = [
-    Color(0xffABA194),
-    Color(0xffCFCBCA),
-    Color(0xffD8DDDE),
-    Color(0xffD9F7FA)
-  ];
   int currentindex = 0;
   @override
   Widget build(BuildContext context) {
