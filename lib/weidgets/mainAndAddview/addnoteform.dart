@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/cubit/addnotes_cubit/addnotes_cubit.dart';
 import 'package:notes/models/addnote.dart';
+import 'package:notes/weidgets/mainAndAddview/colorslistview.dart';
 import 'package:notes/weidgets/mainAndAddview/cusstomtextfield.dart';
 import 'package:notes/weidgets/mainAndAddview/custtombutton.dart';
 import 'package:intl/intl.dart';
@@ -45,6 +46,7 @@ class _addnoteformState extends State<addnoteform> {
             hint: 'content',
             maxlines: 6,
           ),
+          colorlistview(),
           const SizedBox(
             height: 32,
           ),
@@ -80,3 +82,4 @@ class _addnoteformState extends State<addnoteform> {
     );
   }
 }
+
